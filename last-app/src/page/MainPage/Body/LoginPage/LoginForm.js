@@ -30,7 +30,7 @@ const validateValues = values => {
 const LoginForm = ({setCurrentUser}) => {
     const currentUser = useContext(CurrentUserContext)
 
-    const [loginSuccess, setLoginSuccess] = useState(!(currentUser))
+    const [loginSuccess, setLoginSuccess] = useState(false)
     console.log(loginSuccess)
     const onSubmit = (values, {setSubmitting}) => {
         axios.post('http://localhost:8080/authenticate', {
@@ -46,7 +46,7 @@ const LoginForm = ({setCurrentUser}) => {
 
     }
 
-    if (loginSuccess) {
+    if ((loginSuccess)) {
         return <HomePage/>
     }
     return (
@@ -98,20 +98,8 @@ const LoginForm = ({setCurrentUser}) => {
                         </Row>
                     <div className="under">
 
-                        <Form.Group className="mb-3">
-                            <Form.Check
-                                required
-                                name="terms"
-                                label="Agree to terms and conditions"
-                                onChange={handleChange}
-                                isInvalid={!!errors.terms}
-                                feedback={errors.terms}
-                                id="validationFormik0"
-                            />
-                        </Form.Group>
-                        {/*<Link to={{pathname: `/homepage`}}>*/}
-                        <Button type="submit">Submit form</Button>
-                        {/*</Link>*/}
+                        <Button type="submit">Login</Button>
+
                     </div>
                     </Form>
                 )}

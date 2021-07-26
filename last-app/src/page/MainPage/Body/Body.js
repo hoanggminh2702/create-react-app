@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Route, Switch} from "react-router-dom";
 import HomePage from "./HomePage/HomePage";
 import PostsPage from "./PostsPage/PostsPage";
@@ -7,8 +7,10 @@ import "./Body.css"
 import {Link} from "react-router-dom";
 import LoginForm from "./LoginPage/LoginForm";
 import EditForm from "./EditPage/EditForm";
+import CurrentUserContext from "../../Context/CurrentUserContext";
 
 const Body = ({setCurrentUser}) => {
+    const currentUser = useContext(CurrentUserContext)
     return (
         <div className="maincontent">
             <div className="container">
@@ -49,10 +51,37 @@ const Body = ({setCurrentUser}) => {
                         <Route
                             path="/login"
                             exact
+                            render = { () => {
+                                if(currentUser.token !== null) return (
+                                    alert("ban da dang nhap roi")
+                                )
+                                else return (
+                                    <LoginForm
+                                        setCurrentUser={setCurrentUser}
+                                    />)
+                            }}
                         >
-                            <LoginForm
-                                setCurrentUser = { setCurrentUser }
-                            />
+                        </Route>
+
+                        <Route
+                            path="/logout"
+                            exact
+                            render = { () => {
+                                if (currentUser.token !== null) {
+                                    setCurrentUser({
+                                        token: null
+                                    })
+                                    return <LoginForm
+                                        setCurrentUser={setCurrentUser}
+                                    />
+                                } else {
+                                    return <LoginForm
+                                        setCurrentUser={setCurrentUser}
+                                    />
+                                }
+
+                            }}
+                        >
                         </Route>
 
                         <Route
