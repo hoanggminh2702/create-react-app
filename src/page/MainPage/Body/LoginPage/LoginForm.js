@@ -37,16 +37,17 @@ const LoginForm = ({setCurrentUser}) => {
             username: values.email,
             password: values.password
         }).then(response => {
-            alert('dang nhap thanh cong')
             setLoginSuccess(true)
             setCurrentUser({
                 token: response.data.jwttoken
-            })
+            });
+        }).catch(error => {
+            alert('dang nhap that bai')
         })
 
     }
 
-    if ((loginSuccess)) {
+    if (loginSuccess === true) {
         return <HomePage/>
     }
     return (

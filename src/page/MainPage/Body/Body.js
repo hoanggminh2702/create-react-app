@@ -52,9 +52,12 @@ const Body = ({setCurrentUser}) => {
                             path="/login"
                             exact
                             render = { () => {
-                                if(currentUser.token !== null) return (
-                                    alert("ban da dang nhap roi")
-                                )
+                                if(currentUser.token !== null) {
+                                    alert("ban da dang nhap")
+                                    return (
+                                        <HomePage/>
+                                    )
+                                }
                                 else return (
                                     <LoginForm
                                         setCurrentUser={setCurrentUser}
@@ -70,14 +73,11 @@ const Body = ({setCurrentUser}) => {
                                 if (currentUser.token !== null) {
                                     setCurrentUser({
                                         token: null
-                                    })
-                                    return <LoginForm
-                                        setCurrentUser={setCurrentUser}
-                                    />
+                                    });
+                                    return <HomePage/>
                                 } else {
-                                    return <LoginForm
-                                        setCurrentUser={setCurrentUser}
-                                    />
+                                    alert('ban chua dang nhap')
+                                    return <HomePage/>
                                 }
 
                             }}
