@@ -1,0 +1,79 @@
+import React from 'react';
+import {Route, Switch} from "react-router-dom";
+import HomePage from "./HomePage/HomePage";
+import PostsPage from "./PostsPage/PostsPage";
+import Detail from "./DetailPage/Detail";
+import "./Body.css"
+import {Link} from "react-router-dom";
+import LoginForm from "./LoginPage/LoginForm";
+import EditForm from "./EditPage/EditForm";
+
+const Body = ({setCurrentUser}) => {
+    return (
+        <div className="maincontent">
+            <div className="container">
+                <div className="row">
+                    <Switch>
+                        <Route
+                            path="/"
+                            exact
+                        >
+                            <PostsPage
+                                apilink="home"
+                            />
+                        </Route>
+                        <Route
+                            path="/homepage"
+                            exact
+                        >
+                            <PostsPage
+                                apilink="home"
+                            />
+                        </Route>
+
+                        <Route
+                            path="/post"
+                            exact
+                        >
+                            <PostsPage
+                                apilink="page"
+                            />
+                        </Route>
+
+                        <Route
+                            path="/post/:id"
+                            exact
+                        >
+                            <Detail/>
+                        </Route>
+                        <Route
+                            path="/login"
+                            exact
+                        >
+                            <LoginForm
+                                setCurrentUser = { setCurrentUser }
+                            />
+                        </Route>
+
+                        <Route
+                            path="/edit/:id"
+                            exact
+                        >
+                            <EditForm/>
+                        </Route>
+
+                    </Switch>
+                    <div class="viewallpost">
+                        <Link to={{pathname: `/homepage`}}>
+                            <button class="buttonviewpost">
+                                <p>VIEW ALL POST →</p>
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Body;
