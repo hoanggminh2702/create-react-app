@@ -4,7 +4,7 @@ import {Button, Form, Row} from 'react-bootstrap'
 import axios from "axios";
 import "./login.css"
 import {Link} from "react-router-dom";
-import CurrentUserContext from "../../../Context/CurrentUserContext";
+import CurrentUserContext from "../../../../Context/CurrentUserContext";
 import HomePage from "../HomePage/HomePage";
 
 

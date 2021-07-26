@@ -4,8 +4,8 @@ import Body from "./Body/Body";
 import {BrowserRouter as Router} from "react-router-dom";
 import "./base.css"
 import Footer from "./Footer/footer";
-import APIlinkContext from "../Context/APIlinkContext";
-import CurrentUserContext from "../Context/CurrentUserContext";
+import APIlinkContext from "../../Context/APIlinkContext";
+import CurrentUserContext from "../../Context/CurrentUserContext";
 const apiLink = {
     newest: 'http://localhost:8080/api/v1/posts/find10newestposts',
     allposts: 'http://localhost:8080/api/v1/posts/allposts',

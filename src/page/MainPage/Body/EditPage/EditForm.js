@@ -4,9 +4,9 @@ import {Button, Form} from "react-bootstrap";
 import {
     useParams
 } from "react-router-dom";
-import APIlinkContext from "../../../Context/APIlinkContext";
+import APIlinkContext from "../../../../Context/APIlinkContext";
 import axios from "axios";
-import CurrentUserContext from "../../../Context/CurrentUserContext";
+import CurrentUserContext from "../../../../Context/CurrentUserContext";
 
 const mapResponseToData = response => response.data
 

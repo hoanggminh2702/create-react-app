@@ -7,7 +7,7 @@ import "./Body.css"
 import {Link} from "react-router-dom";
 import LoginForm from "./LoginPage/LoginForm";
 import EditForm from "./EditPage/EditForm";
-import CurrentUserContext from "../../Context/CurrentUserContext";
+import CurrentUserContext from "../../../Context/CurrentUserContext";
 
 const Body = ({setCurrentUser}) => {
     const currentUser = useContext(CurrentUserContext)

@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 
 import useGETapi from "../../../../customHooks/useGETapi";
-import APIlinkContext from "../../../Context/APIlinkContext";
+import APIlinkContext from "../../../../Context/APIlinkContext";
 
 const mapResponseToData = response => response.data
 

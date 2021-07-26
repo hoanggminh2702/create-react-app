@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './Post.css'
 import {Link} from "react-router-dom";
 import useGETapi from "../../../../customHooks/useGETapi";
-import APIlinkContext from "../../../Context/APIlinkContext";
+import APIlinkContext from "../../../../Context/APIlinkContext";
 
 const mapResponeToData = respone => respone.data
 const PostsPage = (props) => {
